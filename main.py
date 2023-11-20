@@ -1,11 +1,24 @@
-from coin import Coin
 from kingoftokyiodice import KingOfTokyoDice
-from side import Side
 
-dices = [KingOfTokyoDice(), Coin()]
+diceBag = []
+for i in range(6):
+    diceBag.append(KingOfTokyoDice())
 
-for dice in dices:
+for dice in diceBag:
     print(dice.roll())
+print("Quels dés voulez-vous garder ?")
+userChoice = input()
+userChoice = userChoice.split()
+for i in range(len(userChoice)):
+    diceBag[int(userChoice[i]) - 1].keep()
+ 
+for dice in diceBag:
+    print(dice.roll())
+print("Quels dés voulez-vous garder ?")
+userChoice = input()
+userChoice = userChoice.split()
+for i in range(len(userChoice)):
+    diceBag[int(userChoice[i]) - 1].keep()
 
-for side in list(Side):
-    print(side.getValue())
+for dice in diceBag:
+    print(dice.roll())
